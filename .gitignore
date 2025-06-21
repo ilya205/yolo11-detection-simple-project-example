@@ -3,3 +3,7 @@
 /venv
 /dist
 /build
+/runs
+/__pycache__
+/cars examples
+

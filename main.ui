@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>491</width>
+    <height>513</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="trainPushButton">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>10</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select dataset (.yaml file) with File menu, setup training settings and click this button to train YOLO11 model. Default path for dataset - '&lt;span style=&quot; font-family:'Courier New'; color:#6a8759;&quot;&gt;./dataset/data.yaml&lt;/span&gt;'.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Train</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="trainingInfoGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>201</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Training info</string>
+    </property>
+    <widget class="QProgressBar" name="currentEpochProgressBar">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>40</y>
+       <width>101</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Current epoch</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Epoch</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="epochNumberProgressLabel">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>20</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0/0</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="metricsTextEdit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>181</width>
+       <height>151</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Metrics</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="trainingSettingsGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>201</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Training settings</string>
+    </property>
+    <widget class="QLineEdit" name="epochsNumberLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>30</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>10</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Epochs</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="batchSizeLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>60</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>8</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Batch size</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>90</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Image size</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="imageSizeLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>90</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>320</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>120</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Device</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="deviceLineEdit">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>120</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>cpu</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="abortPushButton">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>10</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Abort training&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Abort</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="useWeightsCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set checked if want to train with weights selected with 'load button'.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>use weights?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="loadWeightsPushButton">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>10</y>
+      <width>81</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select weights file for model. Weights are used for training if 'use weight?' is checked.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Load weights</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="analysePushButton">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>60</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Analyse selected file. Uses model with loaded weights if 'use weights' is checked. Not trained model used otherwise.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Analyse</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="logTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>160</y>
+      <width>261</width>
+      <height>311</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>140</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Log</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="selectFileForAnalysisPushButton">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>60</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select file to analyse with YOLO model.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Select file</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>100</y>
+      <width>61</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Confidence</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="confidenceThresholdLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>100</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Confidence threshold. Value between 0-1. If prediction made with confidence below set threshold it will not be displayed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>0.2</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>491</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

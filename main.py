@@ -5,6 +5,8 @@ from PySide6 import QtWidgets, QtGui, QtCore
 import model
 import ui_main
 
+# pyinstaller --noconfirm --onedir --windowed --name "YOLO11 example" "./main.py"
+
 
 class QTextEditLogger(logging.Handler):
 

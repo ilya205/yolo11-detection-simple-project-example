@@ -1,9 +1,11 @@
 /.idea
 /dataset
 /venv
-/dist
 /build
 /runs
 /__pycache__
+/*.spec
+/dist
+
 
 

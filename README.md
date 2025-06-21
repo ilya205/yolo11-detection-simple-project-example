@@ -16,3 +16,6 @@ New window with image and boxes should appear.
 
 'trained models' folder contains weights which can be used.
 'cars examples' contains some cars photo for prediction examples.
+
+Install from github:
+pip install git+https://github.com/ilya205/yolo11-detection-simple-project-example

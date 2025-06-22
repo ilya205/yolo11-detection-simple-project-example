@@ -65,6 +65,7 @@ class ModelThread(QtCore.QThread):
                 batch=self.train_settings['batch'],
                 imgsz=self.train_settings['imgsz'],
                 device=self.train_settings['device'],
+                project='./my_runs'
             )
         except Exception as ex:
             logger.error(str(ex))

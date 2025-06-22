@@ -1,11 +1,11 @@
 /.idea
 /dataset
 /venv
+/dist
 /build
 /runs
+/my_runs
 /__pycache__
+/cars examples
 /*.spec
-/dist
-
-
 

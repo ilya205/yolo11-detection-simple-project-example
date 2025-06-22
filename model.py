@@ -14,16 +14,18 @@ class ModelThread(QtCore.QThread):
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.weights_path = ''
+        self._weights_path = ''
         self._current_epoch_step = 0  # used to calculate epoch progress (incremented for every batch calc)
-        self.train_settings = {'data': "./dataset/data.yaml",
+        self._exe_dir = os.path.dirname(sys.argv[0])
+        self.train_settings = {'data': os.path.join(self._exe_dir, "dataset/data.yaml"),
                                'epochs': 1,
                                'batch': 8,
                                'imgsz': 320,
                                'device': 'cpu'}
         self.model = YOLO("yolo11n.yaml")
         self._should_stop = False  # used to stop model training from gui
-        self._analysed_file_path = './cars examples/1.PNG'  # path to file to analyse with model
+        # path to file to analyse with model
+        self._analysed_file_path = os.path.join(self._exe_dir, 'cars examples/1.PNG')
         self._predict_confidence_threshold = 0.1  # confidence threshold used when prediction results plot
 
     def abort_training(self):
@@ -37,7 +39,7 @@ class ModelThread(QtCore.QThread):
 
     def load_weights_to_model(self):
         try:
-            self.model.load(self.weights_path)
+            self.model = YOLO(self._weights_path)
             logger.info('Weights applied')
         except Exception as ex:
             logger.warning('Need to setup correct path for weights file\n' + str(ex))
@@ -102,7 +104,7 @@ class ModelThread(QtCore.QThread):
         self.train_settings['data'] = str(dataset_path)
 
     def set_weights_path(self, weights_path: str):
-        self.weights_path = str(weights_path)
+        self._weights_path = str(weights_path)
 
     def set_epochs_number(self, epochs: int):
         self.train_settings['epochs'] = epochs

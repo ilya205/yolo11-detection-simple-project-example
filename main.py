@@ -5,7 +5,8 @@ from PySide6 import QtWidgets, QtGui, QtCore
 import model
 import ui_main
 
-# pyinstaller --noconfirm --onedir --windowed --name "YOLO11 example" "./main.py"
+# need to enable console when making .exe for yolo output
+# pyinstaller --noconfirm --onedir --windowed --name "YOLO11 example v0.5" "./main.py" --hidden-import torch --hidden-import ultralytics --collect-all "ultralytics" --console
 
 
 class QTextEditLogger(logging.Handler):

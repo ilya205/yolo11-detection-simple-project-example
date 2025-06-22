@@ -17,5 +17,7 @@ New window with image and boxes should appear.
 'trained models' folder contains weights which can be used.
 'cars examples' contains some cars photo for prediction examples.
 
-Install from github:
-pip install git+https://github.com/ilya205/yolo11-detection-simple-project-example
+Installation:
+1. Using git bash: git clone https://github.com/ilya205/yolo11-detection-simple-project-example
+2. In project folder: pip install -r requirements.txt
+3. Or in project folder: pip install git+https://github.com/ilya205/yolo11-detection-simple-project-example
